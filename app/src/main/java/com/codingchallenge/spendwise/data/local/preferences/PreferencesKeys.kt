@@ -1,0 +1,10 @@
+package com.codingchallenge.spendwise.data.local.preferences
+
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
+
+object PreferencesKeys {
+    val THEME_MODE = stringPreferencesKey("theme_mode") // light, dark, or system
+    val LANGUAGE = stringPreferencesKey("language")     // en or de
+    val SHOW_CHART = booleanPreferencesKey("show_chart")
+}
