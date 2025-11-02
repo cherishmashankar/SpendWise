@@ -36,7 +36,9 @@ fun TransactionItem(
     val icon = if (transaction.type == TransactionType.INCOME) Icons.Default.ArrowDownward else Icons.Default.ArrowUpward
     val color = if (transaction.type == TransactionType.INCOME) AppColors.Income else AppColors.Expense
 
-    val formattedAmount = remember(transaction.amount) { transaction.amount.toEuroFormat(locale) }
+    val formattedAmount = remember(transaction.amount, locale) {
+        transaction.amount.toEuroFormat(locale)
+    }
     val formattedDate = remember(transaction.lastModified, locale) { transaction.lastModified.toFormattedDate(locale) }
 
     Card(

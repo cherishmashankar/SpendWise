@@ -134,7 +134,8 @@ fun TransactionScreen(
                 viewModel.addOrUpdateTransaction(transaction)
                 showAddDialog = false
                 editingTransaction = null
-            }
+            },
+            locale
         )
     }
 }

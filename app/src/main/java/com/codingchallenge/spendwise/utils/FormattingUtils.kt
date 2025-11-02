@@ -19,3 +19,4 @@ fun Double.toEuroFormat(locale: Locale): String {
 
     return "€$formatted"
 }
+
