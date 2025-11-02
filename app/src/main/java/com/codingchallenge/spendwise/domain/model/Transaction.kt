@@ -9,5 +9,4 @@ data class Transaction(
     val notes: String? = null,
     val timestamp: Long,
     val lastModified: Long,
-    val currency: String
 )

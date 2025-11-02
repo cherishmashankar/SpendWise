@@ -1,16 +1,13 @@
 package com.codingchallenge.spendwise.domain.usecase.transaction
 
+import com.codingchallenge.spendwise.domain.model.BalanceSummary
 import com.codingchallenge.spendwise.domain.model.TransactionType
 import com.codingchallenge.spendwise.domain.repository.TransactionRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-data class BalanceSummary(
-    val totalIncome: Double,
-    val totalExpense: Double,
-    val balance: Double
-)
+
 
 class GetTotalBalanceUseCase @Inject constructor(
     private val repository: TransactionRepository
@@ -26,9 +23,9 @@ class GetTotalBalanceUseCase @Inject constructor(
                 .sumOf { it.amount }
 
             BalanceSummary(
+                totalBalance = income - expense,
                 totalIncome = income,
-                totalExpense = expense,
-                balance = income - expense
+                totalExpense = expense
             )
         }
     }

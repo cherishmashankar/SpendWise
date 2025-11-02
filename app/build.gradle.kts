@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.room.common.jvm)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -73,13 +74,18 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
 
-// DataStore
+    // DataStore
     implementation(libs.datastore.preferences)
+    implementation(libs.androidx.foundation)
 
     // LeakCanary
     debugImplementation(libs.leakcanary)
+
+    implementation(libs.androidx.material.icons.extended)
+    implementation(libs.charts)
 
     // Testing
     testImplementation(libs.junit)
@@ -89,6 +95,24 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Unit testing
+    testImplementation(libs.junit)
+    testImplementation(libs.truth)
+    testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.mockk)
+    testImplementation(libs.turbine)
+    testImplementation(libs.androidx.room.testing)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+
+// Debug tools
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+
+
+
+
 
 
 

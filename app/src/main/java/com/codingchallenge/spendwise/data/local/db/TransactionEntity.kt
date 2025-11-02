@@ -15,5 +15,4 @@ data class TransactionEntity(
     val notes: String? = null,
     val timestamp: Long = System.currentTimeMillis(),
     val lastModified: Long = System.currentTimeMillis(),
-    val currency: String
 )

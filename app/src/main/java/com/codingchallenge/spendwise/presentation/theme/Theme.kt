@@ -1,4 +1,4 @@
-package com.codingchallenge.spendwise.ui.theme
+package com.codingchallenge.spendwise.presentation.theme
 
 
 import androidx.compose.foundation.isSystemInDarkTheme

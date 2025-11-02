@@ -1,5 +1,7 @@
 package com.codingchallenge.spendwise.data.mapper
 
+
+
 import com.codingchallenge.spendwise.data.local.db.TransactionEntity
 import com.codingchallenge.spendwise.domain.model.Transaction
 
@@ -13,7 +15,7 @@ fun TransactionEntity.toDomain(): Transaction {
         notes = notes,
         timestamp = timestamp,
         lastModified = lastModified,
-        currency = currency
+
     )
 }
 
@@ -27,6 +29,5 @@ fun Transaction.toEntity(): TransactionEntity {
         notes = notes,
         timestamp = timestamp,
         lastModified = lastModified,
-        currency = currency
     )
 }

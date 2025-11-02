@@ -1,47 +1,53 @@
 package com.codingchallenge.spendwise
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.codingchallenge.spendwise.ui.theme.SpendWiseTheme
+import androidx.annotation.RequiresApi
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
+import androidx.hilt.navigation.compose.hiltViewModel
 
+import com.codingchallenge.spendwise.presentation.spendwise.SpendWiseViewModel
+import com.codingchallenge.spendwise.presentation.spendwise.TransactionScreen
+import com.codingchallenge.spendwise.presentation.theme.SpendWiseTheme
+import com.codingchallenge.spendwise.utils.AppConstants
+import com.codingchallenge.spendwise.utils.updateLocale
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
-            SpendWiseTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+
+            val spendWiseViewModel: SpendWiseViewModel = hiltViewModel()
+            val uiState by spendWiseViewModel.uiState.collectAsState()
+            val themeMode = uiState.themeMode
+            val language = uiState.language
+
+            val context = LocalContext.current
+            val localizedContext = remember(language) {
+                context.updateLocale(language)
+            }
+
+            CompositionLocalProvider(
+                LocalContext provides localizedContext
+            ) {
+                SpendWiseTheme(darkTheme = themeMode == AppConstants.THEME_DARK) {
+                    TransactionScreen(
+                        viewModel = spendWiseViewModel
                     )
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SpendWiseTheme {
-        Greeting("Android")
     }
 }
