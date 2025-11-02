@@ -119,7 +119,6 @@ fun AddEditTransactionDialog(
                                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
                                 },
                                 modifier = Modifier
-                                    .menuAnchor()
                                     .fillMaxWidth()
                             )
 
