@@ -22,8 +22,8 @@ A modern single-screen Android application built with Jetpack Compose and Kotlin
 </p>
 
 <p align="center">
-  <b>Light mode overview</b> &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Dark mode overview</b>
+  <b>Light mode </b> &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Dark mode </b>
 </p>
 
 <br>
