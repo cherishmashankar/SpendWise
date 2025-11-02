@@ -15,11 +15,23 @@ A modern single-screen Android application built with Jetpack Compose and Kotlin
 
 ## Screenshots
 
-<p align="center"> <img src="screenshots/home_light.png" width="24%" alt="Home Light Mode"> &nbsp;&nbsp;&nbsp;&nbsp; 
-<img src="screenshots/home_dark.png" width="24%" alt="Home Dark Mode"> &nbsp;&nbsp;&nbsp;&nbsp; <img src="screenshots/add_transaction_dialog.png" width="24%" alt="Add Transaction Dialog"> &nbsp;&nbsp;&nbsp;&nbsp; 
-<img src="screenshots/settings.png" width="24%" alt="Settings Screen"> </p> <p align="center"> <b>Light & Dark mode overview</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-<b>Transaction list & Balance chart view</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Add Transaction Dialog</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-<b>Settings Screen</b> </p>
+<p align="center">
+   &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/home_light.png" width="20%" alt="Home Light Mode">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/home_dark.png" width="20%" alt="Home Dark Mode">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/add_transaction_dialog.png" width="20%" alt="Add Transaction Dialog">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/settings.png" width="20%" alt="Settings Screen">
+</p>
+
+<p align="center">
+  <b>Light mode overview</b> &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Light mode overview</b> &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Add Transaction Dialog</b> &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Settings Screen</b>
+</p>
 
 
 ## Tech Stack Used
