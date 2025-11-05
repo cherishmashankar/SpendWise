@@ -43,27 +43,27 @@ fun AddEditTransactionDialog(
     var note by remember { mutableStateOf(transaction?.notes ?: "") }
     var type by remember { mutableStateOf(transaction?.type ?: TransactionType.INCOME) }
 
+    var titleError by remember { mutableStateOf(false) }
+    var amountError by remember { mutableStateOf(false) }
+
     val focusManager = LocalFocusManager.current
     val isEditing = transaction != null
-    val isValid by derivedStateOf {
-        val cleanAmount = amount.replace(",", ".")
-        val parsedAmount = cleanAmount.toDoubleOrNull() ?: 0.0
-        title.trim().isNotEmpty() && parsedAmount > 0
-    }
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = {
-        },
+        title = {},
         text = {
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(AppDimens.PaddingSmall)
             ) {
-
+                // ---- Title Field ----
                 BasicTextField(
                     value = title,
-                    onValueChange = { newText -> title = newText.replace("\n", "") },
+                    onValueChange = {
+                        title = it.replace("\n", "")
+                        titleError = false
+                    },
                     cursorBrush = SolidColor(MaterialTheme.colorScheme.onSurface),
                     textStyle = TextStyle(
                         fontSize = 22.sp,
@@ -88,12 +88,21 @@ fun AddEditTransactionDialog(
                         innerTextField()
                     }
                 )
+
+                if (titleError) {
+                    Text(
+                        text = stringResource(R.string.error_empty_title),
+                        color = MaterialTheme.colorScheme.error,
+                        fontSize = 14.sp
+                    )
+                }
+
                 Spacer(modifier = Modifier.height(AppDimens.PaddingSmall))
 
-                IncomeExpenseSelector(
-                    type = type,
-                    onTypeChange = { type = it }
-                )
+                // ---- Type Selector ----
+                IncomeExpenseSelector(type = type, onTypeChange = { type = it })
+
+                // ---- Amount Field ----
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -101,11 +110,24 @@ fun AddEditTransactionDialog(
                 ) {
                     AmountInputField(
                         amount = amount,
-                        onAmountChange = { amount = it },
+                        onAmountChange = {
+                            amount = it
+                            amountError = false
+                        },
                         type = type,
                         modifier = Modifier.weight(1f)
                     )
                 }
+
+                if (amountError) {
+                    Text(
+                        text = stringResource(R.string.error_invalid_amount),
+                        color = MaterialTheme.colorScheme.error,
+                        fontSize = 14.sp
+                    )
+                }
+
+                // ---- Notes ----
                 OutlinedTextField(
                     value = note,
                     onValueChange = { note = it },
@@ -119,26 +141,39 @@ fun AddEditTransactionDialog(
         confirmButton = {
             TextButton(
                 onClick = {
-                    val parsedAmount = amount.toLocalizedDouble(locale)
-                    val transactionToSave = Transaction(
-                        id = transaction?.id ?: 0,
-                        title = title.trim(),
-                        amount = parsedAmount,
-                        type = type,
-                        category = transaction?.category,
-                        notes = note.trim(),
-                        timestamp = transaction?.timestamp ?: System.currentTimeMillis(),
-                        lastModified = System.currentTimeMillis()
-                    )
-                    onSave(transactionToSave)
-                    onDismiss()
+                    val cleanAmount = amount.replace(",", ".")
+                    val parsedAmount = cleanAmount.toDoubleOrNull() ?: 0.0
+                    var hasError = false
+
+                    if (title.trim().isEmpty()) {
+                        titleError = true
+                        hasError = true
+                    }
+                    if (parsedAmount <= 0) {
+                        amountError = true
+                        hasError = true
+                    }
+
+                    if (!hasError) {
+                        val transactionToSave = Transaction(
+                            id = transaction?.id ?: 0,
+                            title = title.trim(),
+                            amount = parsedAmount,
+                            type = type,
+                            category = transaction?.category,
+                            notes = note.trim(),
+                            timestamp = transaction?.timestamp ?: System.currentTimeMillis(),
+                            lastModified = System.currentTimeMillis()
+                        )
+                        onSave(transactionToSave)
+                        onDismiss()
+                    }
                 },
-                enabled = isValid
+                enabled = true // ✅ Always enabled
             ) {
                 Text(
                     text = if (isEditing) stringResource(R.string.save) else stringResource(R.string.add),
-                    color = if (isValid) MaterialTheme.colorScheme.primary
-                    else MaterialTheme.colorScheme.outline,
+                    color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Bold,
                     fontSize = 18.sp
                 )
@@ -155,5 +190,4 @@ fun AddEditTransactionDialog(
         }
     )
 }
-
 

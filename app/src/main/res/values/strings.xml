@@ -58,4 +58,7 @@
     <string name="expenses">Expenses</string>
     <string name="balance_overview_title">Balance Overview</string>
 
+    <string name="error_empty_title">Please enter a title</string>
+    <string name="error_invalid_amount">Please enter a valid amount</string>
+
 </resources>

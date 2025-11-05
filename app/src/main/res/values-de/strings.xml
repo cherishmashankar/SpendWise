@@ -55,6 +55,9 @@
     <string name="expenses">Ausgaben</string>
     <string name="balance_overview_title">Kontenübersicht</string>
 
+    <string name="error_empty_title">Bitte geben Sie einen Titel ein</string>
+    <string name="error_invalid_amount">Bitte geben Sie einen gültigen Betrag ein</string>
+
 
 
 

@@ -13,7 +13,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.codingchallenge.spendwise.R
-
 import com.codingchallenge.spendwise.domain.model.TransactionType
 import com.codingchallenge.spendwise.presentation.theme.AppColors
 import com.codingchallenge.spendwise.presentation.theme.SpendWiseTheme
