@@ -15,11 +15,29 @@ A modern single-screen Android application built with Jetpack Compose and Kotlin
 
 ## Screenshots
 
-<p align="center"> <img src="screenshots/home_light.png" width="24%" alt="Home Light Mode"> &nbsp;&nbsp;&nbsp;&nbsp; 
-<img src="screenshots/home_dark.png" width="24%" alt="Home Dark Mode"> &nbsp;&nbsp;&nbsp;&nbsp; <img src="screenshots/add_transaction_dialog.png" width="24%" alt="Add Transaction Dialog"> &nbsp;&nbsp;&nbsp;&nbsp; 
-<img src="screenshots/settings.png" width="24%" alt="Settings Screen"> </p> <p align="center"> <b>Light & Dark mode overview</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-<b>Transaction list & Balance chart view</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Add Transaction Dialog</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-<b>Settings Screen</b> </p>
+<p align="center">
+  <img src="screenshots/home_light.png" width="28%" alt="Home Light Mode">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/home_dark.png" width="28%" alt="Home Dark Mode">
+</p>
+
+<p align="center">
+  <b>Light mode </b> &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Dark mode </b>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="screenshots/add_transaction_dialog.png" width="28%" alt="Add Transaction Dialog">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/settings.png" width="28%" alt="Settings Screen">
+</p>
+
+<p align="center">
+  <b>Add Transaction Dialog</b> &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Settings Screen</b>
+</p>
 
 
 ## Tech Stack Used
@@ -49,6 +67,7 @@ A modern single-screen Android application built with Jetpack Compose and Kotlin
 | **Dependency Injection** | Managed by Hilt for clean separation of concerns |
 
 
+
 ## Download APK
 
 A pre-built APK file is available for download to test the app directly on your Android device:
@@ -75,6 +94,7 @@ If you prefer to build and run the app from source:
 2. Open the project in Android Studio (Giraffe or newer)
 3. Sync Gradle and wait for dependencies to download
 4. Build and Run the app on an emulator or a connected Android device
+
 
 
 ### Build Configuration
