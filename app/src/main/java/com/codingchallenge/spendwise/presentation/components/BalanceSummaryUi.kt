@@ -124,7 +124,6 @@ fun BalanceOverviewCard(
                     pieChartData = chartData,
                     sliceDrawer = SimpleSliceDrawer(sliceThickness = 60f),
                     modifier = Modifier.size(100.dp)
-
                 )
 
             }
