@@ -18,6 +18,7 @@ class TransactionRepositoryImpl @Inject constructor(
             list.map { it.toDomain() }
         }
     }
+
     override suspend fun getTransactionById(id: Int): Transaction? {
         return dao.getTransactionById(id)?.toDomain()
     }

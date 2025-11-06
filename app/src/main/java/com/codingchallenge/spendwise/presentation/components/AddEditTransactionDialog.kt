@@ -57,7 +57,7 @@ fun AddEditTransactionDialog(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(AppDimens.PaddingSmall)
             ) {
-                // ---- Title Field ----
+
                 BasicTextField(
                     value = title,
                     onValueChange = {
@@ -169,7 +169,7 @@ fun AddEditTransactionDialog(
                         onDismiss()
                     }
                 },
-                enabled = true // ✅ Always enabled
+                enabled = true
             ) {
                 Text(
                     text = if (isEditing) stringResource(R.string.save) else stringResource(R.string.add),
